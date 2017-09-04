@@ -1,3 +1,17 @@
 superuser
 username:xiawei
 password:123456django
+
+下载安装包(用于手动安装)
+pip download virtualenv==15.1.0
+
+运行程序
+python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8080
+/Users/xiawei/Documents/codes/PycharmProjects/virtualenv_django1.11.4/bin/python manage.py runserver
+
+新建一个项目
+django-admin startproject mysite
+
+新建一个app
+python3 manage.py startapp polls
