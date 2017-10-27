@@ -4,7 +4,7 @@
 
 from django import forms
 
-from polls.models import Question
+from polls.models import Question, Choice
 
 
 class StudentForm(forms.Form):

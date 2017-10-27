@@ -1,0 +1,14 @@
+{% extends 'blog/base_main.html' %}
+{% block container %}
+{% if blog %}
+    <span><strong>{{ blog.title }}</strong></span>
+    <br>
+    <span>
+{#    {% autoescape off %}#}
+    {{ blog.content|safe }}
+{#    {% endautoescape %}#}
+    </span>
+    {% else %}
+    <p>blog is not avaleeee!!!</p>
+{% endif %}
+{% endblock %}

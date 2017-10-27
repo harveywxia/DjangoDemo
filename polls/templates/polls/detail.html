@@ -1,5 +1,8 @@
+{% extends 'polls/base.html' %}
+<!-- 加载静态文件目录 -->
+{% load static %}
+{% block container %}
 <h1>{{ question.question_text }}</h1>
-
 {% if error_message %}
 <p>
     <strong>
@@ -10,10 +13,19 @@
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <div class="form-check">
+        <label class="form-check-label" for="choice{{ forloop.counter }}">
+            <input class="form-check-input" id="choice{{ forloop.counter }}" type="radio" name="choice" value="{{ choice.id }}">
+            {{ choice.choice_text }}
+        </label>
+        </div>
+{#        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>#}
+{#        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>#}
     <br/>
     {% endfor %}
-    <input type="submit" value="Vote">
+{#    <input type="submit" value="Vote">#}
+        <button type="submit" class="btn btn-primary" value="Vote">Vote</button>
 </form>
+
+{% endblock %}
 

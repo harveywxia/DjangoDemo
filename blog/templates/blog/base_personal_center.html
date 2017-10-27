@@ -1,0 +1,18 @@
+{% extends 'blog/base_main.html' %}
+{% load static %}
+{% block container %}
+    <div class="row">
+            <div class="col">
+                <!-- As a link -->
+                <nav class="navbar navbar-light bg-light">
+                    <a class="navbar-brand" href="{% url 'blog:my_blog' %}">我的博客</a>
+                    <a class="navbar-brand" href="{% url 'blog:create_blog'%}">写博客</a>
+                    <a class="navbar-brand" href="#">收藏</a>
+                    <a class="navbar-brand" href="#">个人资料</a>
+                </nav>
+            </div>
+            <div class="col-10">
+                {% block personal_container %}{% endblock %}
+            </div>
+        </div>
+{% endblock %}

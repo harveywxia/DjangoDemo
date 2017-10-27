@@ -1,0 +1,21 @@
+{% extends 'blog/base_main.html' %}
+<!-- 加载静态文件目录 -->
+{% load static %}
+{% block container %}
+{% if blog_list %}
+    <ul class="list-group">
+        {% for blog in blog_list %}
+            <li class="list-group-item">
+                <a href="{% url 'blog:detail' blog.id %}">{{ forloop.counter }}. {{ blog.title }}</a>
+                <p>{{ blog.content|safe }}</p>
+{#                <p>#}
+{#                    {% autoescape on %}#}
+{#                    {{ blog.content }}#}
+{#                    {% endautoescape %}#}
+{#                </p>#}
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+{% endblock %}

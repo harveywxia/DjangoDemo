@@ -1,0 +1,16 @@
+{% extends 'blog/base_personal_center.html' %}
+{% load static %}
+{% block personal_container %}
+    {% if blog_list %}
+        <ul class="list-group">
+            {% for blog in blog_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'blog:detail' blog.id %}">{{ forloop.counter }}. {{ blog.title }}</a>
+                    <p>{{ blog.content }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>There is no blog is available!!!</p>
+    {% endif %}
+{% endblock %}
