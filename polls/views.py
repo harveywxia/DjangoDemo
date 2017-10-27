@@ -5,6 +5,7 @@ from django.http import Http404
 from django.urls import reverse
 from django.utils import timezone
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 
 from polls.forms import StudentForm, QuestionForm
 from polls.models import Question, Choice
@@ -109,3 +110,11 @@ def nameinfo(request):
         return HttpResponse("name:{0},sex:{1},age{2}".format(name, sex, age))
     else:
         return HttpResponse("form wrong!!!")
+
+
+@csrf_exempt
+def test(request):
+    # request_body = ""
+    if request.method == 'POST':
+        request_body = request.body
+    return HttpResponse(request_body)

@@ -9,6 +9,8 @@ url_extra = [
     url(r'^$', views.algorithm, name='algorithm'),
     # url like this: /polls/algorithm/algorithm/alg_name=algorithm&para1=parameter
     url(r'^algorithm/alg_name=(?P<alg_name>.+)&para1=(?P<para1>.+)/$', views.algorithm2, name='algorithm2'),
+
+    url(r'^test/', views.test, name='test'),
 ]
 
 # this is the url namespace

@@ -1,0 +1,34 @@
+{% extends 'blog/base_personal_center.html' %}
+{% block personal_container %}
+    <form action="{% url 'blog:save_blog' %}" method="post">
+        {% csrf_token %}
+{#        本行代码会自动拆箱form对象形成表单，但是丑#}
+        {{ form.as_ul }}
+{#        {% for field in form %}#}
+{#            <div class="fieldWrapper">#}
+{#                {{ field.errors }}#}
+{#                {{ field.label_tag }} {{ field }}#}
+{#                {% if field.help_text %}#}
+{#                <p class="help">{{ field.help_text|safe }}</p>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        {% endfor %}#}
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
+    <script>
+      $('textarea#id_content').summernote({
+        placeholder: 'Hello bootstrap 4',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
+{% endblock %}
